@@ -14,6 +14,9 @@ int main(int argc, char const *argv[])
   	Player* p = createPlayer(5, 10);
 
   	mvaddch(p->x, p->y, p->symbol);
+
+  	Room* r1 = createRoom(20, 20, 10, 15);
+  	drawRoom(r1);
   	refresh();
 
   	getch();
