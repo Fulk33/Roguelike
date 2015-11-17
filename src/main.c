@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include "../include/Player.h"
+#include "../include/Room.h"
 
 int main(int argc, char const *argv[])
 {
@@ -10,10 +11,7 @@ int main(int argc, char const *argv[])
   	curs_set(FALSE);  	
   	
   	//Initialising a Playerpointer and allocating Memory of the Structure Player
-  	Player* p = (Player*)malloc(sizeof(Player));
-  	p->x = 5;										//Position x
-  	p->y = 10;										//Position y
-  	p->symbol = 'Q';								//Symbol
+  	Player* p = createPlayer(5, 10);
 
   	mvaddch(p->x, p->y, p->symbol);
   	refresh();
