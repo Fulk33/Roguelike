@@ -4,6 +4,9 @@
 int main(int argc, char const *argv[])
 {
 	initscr();
-	//getch();
+	  noecho();
+  	curs_set(FALSE);
+  	sleep(1);
+  	endwin();
 	return 0;
 }
