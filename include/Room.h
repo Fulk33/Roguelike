@@ -11,6 +11,7 @@ typedef struct Room{
 
 //Room Functions
 Room* createRoom(int w, int h);
-void deleteRoom(Room* room);
+int deleteRoom(Room* room);
+int drawRoom(Room* room);
 
 #endif 

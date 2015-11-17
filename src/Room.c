@@ -2,7 +2,6 @@
 #include <ncurses.h>
 #include "../include/Room.h"
 
-
 Room* createRoom(int x, int y, int w, int h) {
 	Room* newRoom;
 	newRoom = (Room*)malloc(sizeof(Room));
