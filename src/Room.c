@@ -19,8 +19,8 @@ int deleteRoom(Room* room) {
 }
 
 int drawRoom(Room* room) {
-	for (int i = 0; i < room->h; i++) {
-		for (int j = 0; j < room->w; j++) {
+	for (int i = 0; i < room->height; i++) {
+		for (int j = 0; j < room->width; j++) {
 			mvaddch(room->x+j, room->y+i, '.');
 		}
 	}
