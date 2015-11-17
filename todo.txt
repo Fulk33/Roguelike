@@ -1,6 +1,6 @@
 TO DO:
 
-	- setup ncurses for drawing to the shell
+	v setup ncurses for drawing to the shell
 
 	- work on the makefile (include ncurses, headerfiles, objectfiles)
 
