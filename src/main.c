@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
 
   	mvaddch(p->x, p->y, p->symbol);
 
-  	Room* r1 = createRoom(20, 20, 10, 15);
+  	Room* r1 = createRoom(20, 20, 15, 10);
   	drawRoom(r1);
   	refresh();
 
