@@ -2,6 +2,8 @@
 #define ROOM_H
 
 typedef struct Room{
+	int x;
+	int y;
 	int width;
 	int height;
 
