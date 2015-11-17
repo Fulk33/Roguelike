@@ -10,7 +10,7 @@ typedef struct Room{
 } Room;
 
 //Room Functions
-Room* createRoom(int w, int h);
+Room* createRoom(int x, int y, int w, int h);
 int deleteRoom(Room* room);
 int drawRoom(Room* room);
 
