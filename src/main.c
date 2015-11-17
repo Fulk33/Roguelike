@@ -7,14 +7,9 @@ int main(int argc, char const *argv[])
 {
 	initscr();
 	noecho();
-  	curs_set(FALSE);
-<<<<<<< HEAD
-  	
+  	curs_set(FALSE);  	
   	
   	//Initialising a Playerpointer and allocating Memory of the Structure Player
-=======
-
->>>>>>> 2a094fe6dd983aeb1be2c1d0fbe10eacda96e958
   	Player* p = (Player*)malloc(sizeof(Player));
   	p->x = 5;										//Position x
   	p->y = 10;										//Position y
