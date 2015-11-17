@@ -4,6 +4,6 @@
 int main(int argc, char const *argv[])
 {
 	initscr();
-	getch();
+	//getch();
 	return 0;
 }
