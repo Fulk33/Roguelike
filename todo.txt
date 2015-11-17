@@ -1,4 +1,12 @@
 TO DO:
 
-	- get started
+	- setup ncurses for drawing to the shell
+
+	- work on the makefile (include ncurses, headerfiles, objectfiles)
+
+	- Player.c/Player.h
+		- Create a struct with:
+			+ A position (maybe Vec2's?)
+			+ A sybmbol (which will be used as the visual player)
+
 
