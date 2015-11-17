@@ -4,6 +4,7 @@
 #include "../include/Player.h"
 #include "../include/Room.h"
 
+
 enum INPUT {
 	up,
 	right,
@@ -30,22 +31,21 @@ int main(int argc, char const *argv[])
 	initscr();
 	noecho();
   	curs_set(FALSE);
-	keypad(stdscr, TRUE); //sets "using-keypad" to true
 
+	keypad(stdscr, TRUE); //sets "using-keypad" to true
   	int isRunning = 1; 	
   	//////////////////////////////////////
-
+    clear();
   	//Initialising a Playerpointer and allocating Memory of the Structure Player
   	Player* p = createPlayer(5, 10);
-
-  	mvaddch(p->x, p->y, p->symbol);
-  	movePlayer(p, 3);
-  	mvaddch(p->x, p->y, p->symbol);
+    drawPlayer(p);
 
   	Room* r1 = createRoom(20, 20, 15, 10);
   	drawRoom(r1);
   	
   	int input;
+
+
 
   	while(isRunning) {
   		input = getInput();
@@ -65,7 +65,7 @@ int main(int argc, char const *argv[])
   			
   		}
 
-  		mvaddch(p->x, p->y, p->symbol);
+  		
   		refresh();
   	}
 

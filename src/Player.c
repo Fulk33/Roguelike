@@ -12,23 +12,35 @@ Player* createPlayer(int x, int y) {
 	newPlayer->x = x;
 	newPlayer->y = y;
 	newPlayer->symbol = PLAYER_SYMBOL;
-	newPlayer->prevChar = ' ';
+	newPlayer->ground = '.';
+}
+
+int drawPlayer(Player* p){
+	mvaddch(p->x, p->y, p->symbol);
 }
 
 int movePlayer(Player* p, int dir){
 
 	switch(dir) {
-		case 0:	mvaddch(p->x, p->y, p->prevChar);
-				p->prevChar = mvinch(p->y, p->x-1);
+		case 0:	mvaddch(p->x, p->y, p->ground);
 				p->x--;
-				mvaddch(p->x, p->y, p->symbol);
+				drawPlayer(p);
 				break;
-		case 1: p->y++;
+		case 1: mvaddch(p->x, p->y, p->ground);
+				p->y++;
+				drawPlayer(p);
 				break;
-		case 2: p->x++;
+		case 2: mvaddch(p->x, p->y, p->ground);
+				p->x++;
+				drawPlayer(p);
 				break;
-		case 3: p->y--;
+		case 3: mvaddch(p->x, p->y, p->ground);
+				p->y--;
+				drawPlayer(p);
 				break;
+
+
+
 		default:
 				break;
 	}
