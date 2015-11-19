@@ -3,9 +3,6 @@
 #include "../include/Player.h"
 
 #define PLAYER_SYMBOL 'Q'
-//To install DocBlockr press shift+ctrl+p and enter "Package Control: Install Package"
-//hit enter, the type "DocBlockr" and hit enter again
-//To use type /** over a function and hit tab/enter (also use tab (shift+tab) to move through the fields)
 
 /**
  * This will create an instance of Player
@@ -26,10 +23,22 @@ Player* createPlayer(int x, int y) {
 	return newPlayer;
 }
 
+/**
+ * This will draw the symbol of the player
+ * @param  p The pointer to the player
+ * @return   1
+ */
 int drawPlayer(Player* p){
 	mvaddch(p->x, p->y, p->symbol);
+	return 1;
 }
 
+/**
+ * This will move the player in a given direction
+ * @param  p   The pointer to the player
+ * @param  dir The direction (0: up; 1: right; 2: down; 3: left)
+ * @return     1
+ */
 int movePlayer(Player* p, int dir){
 
 	switch(dir) {
