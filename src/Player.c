@@ -22,6 +22,8 @@ Player* createPlayer(int x, int y) {
 	newPlayer->y = y;
 	newPlayer->symbol = PLAYER_SYMBOL;
 	newPlayer->ground = '.';
+
+	return newPlayer;
 }
 
 int drawPlayer(Player* p){
