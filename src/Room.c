@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include "../include/Room.h"
+
 /**
  * This will create a Room
  * @param	x-coordinates in the window
@@ -19,6 +20,7 @@ Room* createRoom(int x, int y, int w, int h) {
 
 	return newRoom;
 }
+
 /**
  * Deletes a Room
  * @param	pointer to a room
@@ -28,6 +30,7 @@ int deleteRoom(Room* room) {
 	free(room);
 	return 1;
 }
+
 /**
  * This function draws a room
  * @param	pointer to a room
