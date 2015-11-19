@@ -3,7 +3,16 @@
 #include "../include/Player.h"
 
 #define PLAYER_SYMBOL 'Q'
+//To install DocBlockr press shift+ctrl+p and enter "Package Control: Install Package"
+//hit enter, the type "DocBlockr" and hit enter again
+//To use type /** over a function and hit tab/enter (also use tab to move through the fields)
 
+/**
+ * This will create an instance of Player
+ * @param  x The x-Coordinate
+ * @param  y The y-Coordinate
+ * @return   pointer to the Player
+ */
 Player* createPlayer(int x, int y) {
 
 	Player* newPlayer;
