@@ -58,7 +58,7 @@ int drawRoom(Room* room) {
 	return 1;
 }
 
-Room* generateRooms(int numRooms, int levelWidth, int levelHeight) {
+Room** generateRooms(int numRooms, int levelWidth, int levelHeight) {
 	int i, j, k, l;
 	int rSize, rWidth, rHeight, rIndex, canBePlaced;
 	int possiblePositions [levelHeight*levelWidth][2];
@@ -105,7 +105,7 @@ Room* generateRooms(int numRooms, int levelWidth, int levelHeight) {
 	return rooms;
 }
 
-int checkForSpace(int x, int y, int width, int height, Room* rooms, int numRooms) {
+int checkForSpace(int x, int y, int width, int height, Room** rooms, int numRooms) {
 	int i;
 	for(i = 0; i < numRooms; i++){
 		if(x < (rooms[i]->x-margin) + (rooms[i]->width+margin) && 

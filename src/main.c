@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ncurses.h>
+#include <time.h>
 #include "../include/Player.h"
 #include "../include/Room.h"
+#include "../include/Level.h"
 
 
 enum INPUT {
@@ -32,31 +34,28 @@ int main(int argc, char const *argv[])
 	noecho();
   	curs_set(FALSE);
 
+  	srand ( time(NULL) );
+
 	keypad(stdscr, TRUE); //sets "using-keypad" to true
   	int isRunning = 1; 	
   	//////////////////////////////////////
     clear();
-  	//Initialising a Playerpointer and allocating Memory of the Structure Player
-  	Player* p = createPlayer(5, 10);
-    drawPlayer(p);
-
-  	Room* r1 = createRoom(20, 20, 15, 10);
-  	drawRoom(r1);
   	
+    Level *l01 = createLevel(60, 80, 10);
+    drawLevel(l01);
+  	
+  	//MAIN GAMELOOP
   	int input;
-
-
-
   	while(isRunning) {
   		input = getInput();
   		switch(input) {
-  			case 0: movePlayer(p, 0);
+  			case 0: movePlayer(l01->player, 0);
   					break;
-  			case 1: movePlayer(p, 1);
+  			case 1: movePlayer(l01->player, 1);
   					break;
-  			case 2: movePlayer(p, 2);
+  			case 2: movePlayer(l01->player, 2);
   					break;
-  			case 3: movePlayer(p, 3);
+  			case 3: movePlayer(l01->player, 3);
   					break;
   			case 4: isRunning = 0;
   					break;

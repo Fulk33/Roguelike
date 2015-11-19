@@ -68,7 +68,7 @@ int movePlayer(Player* p, int dir){
 	return 1;
 }
 
-Player* spawnPlayer(Room* rooms, int numRooms) {
+Player* spawnPlayer(Room** rooms, int numRooms) {
 	//The player will always be spawed in the first room in the array
 	
 	Player* newPlayer;
