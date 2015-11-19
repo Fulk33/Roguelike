@@ -1,7 +1,7 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-typedef struct Room{
+typedef struct _Room{
 	int x;
 	int y;
 	int width;
