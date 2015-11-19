@@ -4,10 +4,10 @@
 /**
  * This will create a Room
  * @param	x-coordinates in the window
- * @param	y-coordinates in te window
+ * @param	y-coordinates in the window
  * @param	width of the Room
- * @param	height of te room
- * @return	returns the Pointer newRoom
+ * @param	height of the room
+ * @return	the pointer newRoom
  */			
 Room* createRoom(int x, int y, int w, int h) { 
 	Room* newRoom;
@@ -20,18 +20,18 @@ Room* createRoom(int x, int y, int w, int h) {
 	return newRoom;
 }
 /**
- * Deletes the Room
- * @param	needs a room
- * @return  returns 1
+ * Deletes a Room
+ * @param	pointer to a room
+ * @return  1
  */
 int deleteRoom(Room* room) {
 	free(room);
 	return 1;
 }
 /**
- * This function draws a room with the help of a 2-dimensional for-loop and some if-loops
- * @param	needs a room
- * @return 	returns 1
+ * This function draws a room
+ * @param	pointer to a room
+ * @return 	1
  */
 int drawRoom(Room* room) {
 	for (int i = 0; i < room->width; i++) {
