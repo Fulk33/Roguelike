@@ -94,7 +94,7 @@ Room** generateRooms(int numRooms, int levelWidth, int levelHeight) {
 			}		
 		}
 		//Choose coordinates randomly
-		
+		 
 		rIndex = rand() % foundPositions;
 		
 		//Place the room
