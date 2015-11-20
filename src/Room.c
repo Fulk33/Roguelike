@@ -46,13 +46,13 @@ int drawRoom(Room* room) {
 	for (int i = 0; i < room->width; i++) {
 		for (int j = 0; j < room->height; j++) {
 			if((i==0 && j==0) || (i==0 && j==room->height-1) || (i==room->width-1 && j==0) || (i==room->width-1 && j==room->height-1)){
-				mvaddch(room->x+j, room->y+i, '+');
+				mvaddch(room->y+j, room->x+i, '+');
 			} else if(i==0 || i == room->width-1){
-				mvaddch(room->x+j, room->y+i, '|');
+				mvaddch(room->y+j, room->x+i, '|');
 			} else if(j==0 || j == room->height-1){
-				mvaddch(room->x+j, room->y+i, '-');
+				mvaddch(room->y+j, room->x+i, '-');
 			} else
-			mvaddch(room->x+j, room->y+i, '.');
+			mvaddch(room->y+j, room->x+i, '.');
 		}
 	}
 	return 1;
@@ -63,7 +63,9 @@ Room** generateRooms(int numRooms, int levelWidth, int levelHeight) {
 	int rSize, rWidth, rHeight, rIndex, canBePlaced;
 	int possiblePositions [levelHeight*levelWidth][2];
 	int foundPositions;
-	Room* rooms[numRooms];
+	Room** rooms;
+
+	rooms = (Room**)malloc(sizeof(Room*)*numRooms);
 
 	//for every room in the level
 	for(i = 0; i < numRooms; i++) {

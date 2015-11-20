@@ -5,7 +5,10 @@
 #include "../include/Player.h"
 #include "../include/Room.h"
 #include "../include/Level.h"
+#include "../include/View.h"
 
+#define WINDOW_WIDTH 80
+#define WINDOW_HEIGHT 60
 
 enum INPUT {
 	up,
@@ -41,21 +44,24 @@ int main(int argc, char const *argv[])
   	//////////////////////////////////////
     clear();
   	
-    Level *l01 = createLevel(60, 80, 10);
-    drawLevel(l01);
+  	View* view = createView(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+    Level* lvl_1 = createLevel(60, 80, 3, view);
+
+    centerViewOnPlayer(view, lvl_1->player);
+    drawLevel(lvl_1);
   	
   	//MAIN GAMELOOP
   	int input;
   	while(isRunning) {
   		input = getInput();
   		switch(input) {
-  			case 0: movePlayer(l01->player, 0);
+  			case 0: movePlayer(lvl_1->player, 0);
   					break;
-  			case 1: movePlayer(l01->player, 1);
+  			case 1: movePlayer(lvl_1->player, 1);
   					break;
-  			case 2: movePlayer(l01->player, 2);
+  			case 2: movePlayer(lvl_1->player, 2);
   					break;
-  			case 3: movePlayer(l01->player, 3);
+  			case 3: movePlayer(lvl_1->player, 3);
   					break;
   			case 4: isRunning = 0;
   					break;

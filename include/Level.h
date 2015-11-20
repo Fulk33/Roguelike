@@ -3,6 +3,7 @@
 
 #include "../include/Player.h"
 #include "../include/Room.h"
+#include "../include/View.h"
 
 typedef struct _level {
 	int width;
@@ -10,6 +11,7 @@ typedef struct _level {
 	Room** rooms;
 	int numRooms;
 	Player* player;
+	View* view;
 
 	//Monster
 	//Items
@@ -17,7 +19,8 @@ typedef struct _level {
 } Level;
 
 //Level functions
-Level* createLevel(int width, int height, int numRooms);
+Level* createLevel(int width, int height, int numRooms, View* view);
 int drawLevel(Level* lvl);
+int roomIsInsideOfView(Room* room, View* view);
 
 #endif 

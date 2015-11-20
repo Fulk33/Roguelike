@@ -29,7 +29,7 @@ Player* createPlayer(int x, int y) {
  * @return   1
  */
 int drawPlayer(Player* p){
-	mvaddch(p->x, p->y, p->symbol);
+	mvaddch(p->y, p->x, p->symbol);
 	return 1;
 }
 
@@ -42,20 +42,20 @@ int drawPlayer(Player* p){
 int movePlayer(Player* p, int dir){
 
 	switch(dir) {
-		case 0:	mvaddch(p->x, p->y, p->ground);
-				p->x--;
+		case 0:	mvaddch(p->y, p->x, p->ground);
+				p->y--;
 				drawPlayer(p);
 				break;
-		case 1: mvaddch(p->x, p->y, p->ground);
-				p->y++;
-				drawPlayer(p);
-				break;
-		case 2: mvaddch(p->x, p->y, p->ground);
+		case 1: mvaddch(p->y, p->x, p->ground);
 				p->x++;
 				drawPlayer(p);
 				break;
-		case 3: mvaddch(p->x, p->y, p->ground);
-				p->y--;
+		case 2: mvaddch(p->y, p->x, p->ground);
+				p->y++;
+				drawPlayer(p);
+				break;
+		case 3: mvaddch(p->y, p->x, p->ground);
+				p->x--;
 				drawPlayer(p);
 				break;
 
