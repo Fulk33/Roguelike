@@ -42,17 +42,17 @@ int deleteRoom(Room* room) {
  * @param	pointer to a room
  * @return 	1
  */
-int drawRoom(Room* room) {
+int drawRoom(Room* room, View* view) {
 	for (int i = 0; i < room->width; i++) {
 		for (int j = 0; j < room->height; j++) {
 			if((i==0 && j==0) || (i==0 && j==room->height-1) || (i==room->width-1 && j==0) || (i==room->width-1 && j==room->height-1)){
-				mvaddch(room->y+j, room->x+i, '+');
+				mvaddch(room->y+j-view->y, room->x+i-view->x, '+');
 			} else if(i==0 || i == room->width-1){
-				mvaddch(room->y+j, room->x+i, '|');
+				mvaddch(room->y+j-view->y, room->x+i-view->x, '|');
 			} else if(j==0 || j == room->height-1){
-				mvaddch(room->y+j, room->x+i, '-');
+				mvaddch(room->y+j-view->y, room->x+i-view->x, '-');
 			} else
-			mvaddch(room->y+j, room->x+i, '.');
+			mvaddch(room->y+j-view->y, room->x+i-view->x, '.');
 		}
 	}
 	return 1;

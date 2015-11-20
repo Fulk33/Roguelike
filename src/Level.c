@@ -1,9 +1,6 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include "../include/Level.h"
-#include "../include/Player.h"
-#include "../include/Room.h"
-#include "../include/View.h"
 
 Level* createLevel(int width, int height, int numRooms, View* view){
 
@@ -30,11 +27,11 @@ int drawLevel(Level* lvl) {
 	int i;
 	for(i = 0; i < lvl->numRooms; i++){
 		if(roomIsInsideOfView(lvl->rooms[i], lvl->view)) {
-			drawRoom(lvl->rooms[i]);
+			drawRoom(lvl->rooms[i], lvl->view);
 		}
 	}
 
-	drawPlayer(lvl->player);
+	drawPlayer(lvl->player, lvl->view);
 
 	/*
 	for (int i = 0; i < lvl->width; i++) {
