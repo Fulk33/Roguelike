@@ -1,12 +1,25 @@
 TO DO:
 
-	v setup ncurses for drawing to the shell
+	- Fix all of the graphical glitches
+	- Add a View struct
 
-	- work on the makefile (include ncurses, headerfiles, objectfiles)
+		+---v----------------------------+
+		|	|							 |
+		>---+----------+				 |
+		|	|		   |   Level		 |
+		|	|	View   |				 |
+		|	|		   |				 |
+		|	+----------+				 |
+		|								 |
+		|								 |
+		|								 |
+		+--------------------------------+
 
-	- Player.c/Player.h
-		- Create a struct with:
-			+ A position (maybe Vec2's?)
-			+ A sybmbol (which will be used as the visual player)
+		- View should have the same size as the window
+		- It should be focused on the player
+		- When the player moves to close to the edge it should move  
+
+
+
 
 
