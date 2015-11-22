@@ -1,6 +1,6 @@
 #include <stdlib.h>
+#include <ncurses.h>
 #include "../include/View.h"
-#include "../include/Player.h"
 
 View* createView(int x, int y, int width, int height){
 	View* newView;
@@ -62,27 +62,34 @@ int roomIsInsideOfView(Room* room, View* view){
 	}
 }
 
-int drawLevel(Level* lvl) {
+int renderbox(int x, int y, int width, int height) {
+	mvaddch(0, 0, '+');
+	for (int i = 1; i < width-1; i++) {
+		mvaddch(0, i, '-');
+	}
+	mvaddch(0, width, '+');
+	for (int i = 1; i < height; i++) {
+		mvaddch(i, 0, '|');
+		mvaddch(i, width, '|');
+	}
+	mvaddch(height, 0, '+');
+	for (int i = 1; i < width-1; i++) {
+		mvaddch(height, i, '-');
+	}
+	mvaddch(height, width, '+');
+}
+
+int renderView(Level* lvl, View* view) {
 	int i;
 	for(i = 0; i < lvl->numRooms; i++){
-		if(roomIsInsideOfView(lvl->rooms[i], lvl->view)) {
-			drawRoom(lvl->rooms[i], lvl->view);
+		if(roomIsInsideOfView(lvl->rooms[i], view)) {
+			drawRoom(lvl->rooms[i], view);
 		}
 	}
 
-	drawPlayer(lvl->player, lvl->view);
+	drawPlayer(lvl->player, view);
+	
+	//renderbox(view->x * -1, view->y * -1, lvl->width, lvl->height);
 
-	/*
-	for (int i = 0; i < lvl->width; i++) {
-		for (int j = 0; j < lvl->height; j++) {
-			if((i==0 && j==0) || (i==0 && j==lvl->height-1) || (i==lvl->width-1 && j==0) || (i==lvl->width-1 && j==lvl->height-1)){
-				mvaddch(j, i, '+');
-			} else if(i==0 || i == lvl->width-1){
-				mvaddch(j, i, '|');
-			} else if(j==0 || j == lvl->height-1){
-				mvaddch(j, i, '-');
-			}
-		}
-	}
-	*/
+	renderbox(0, 0, view->width, view->height);
 }

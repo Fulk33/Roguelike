@@ -2,12 +2,11 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include <time.h>
+
 #include "../include/View.h"
 
-
-
 #define WINDOW_WIDTH 80
-#define WINDOW_HEIGHT 60
+#define WINDOW_HEIGHT 30
 
 enum INPUT {
 	up,
@@ -44,23 +43,28 @@ int main(int argc, char const *argv[])
     clear();
   	
   	View* view = createView(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-    Level* lvl_1 = createLevel(60, 80, 3, view);
+    Level* lvl_1 = createLevel(60, 80, 3);
 
     centerViewOnPlayer(view, lvl_1->player);
-    drawLevel(lvl_1, lvl_1->view);
+    renderView(lvl_1, view);
   	
   	//MAIN GAMELOOP
   	int input;
   	while(isRunning) {
+  		renderView(lvl_1, view);
   		input = getInput();
   		switch(input) {
-  			case 0: movePlayer(lvl_1->player, lvl_1->view, 0);
+  			case 0: movePlayer(lvl_1->player, 0);
+  					view->y--;
   					break;
-  			case 1: movePlayer(lvl_1->player, lvl_1->view, 1);
+  			case 1: movePlayer(lvl_1->player, 1);
+  					view->x++;
   					break;
-  			case 2: movePlayer(lvl_1->player, lvl_1->view, 2);
+  			case 2: movePlayer(lvl_1->player, 2);
+  					view->y++;
   					break;
-  			case 3: movePlayer(lvl_1->player, lvl_1->view, 3);
+  			case 3: movePlayer(lvl_1->player, 3);
+  					view->x--;
   					break;
   			case 4: isRunning = 0;
   					break;
@@ -70,7 +74,8 @@ int main(int argc, char const *argv[])
   		}
 
   		
-  		refresh();
+
+  		clear();
   	}
 
   	endwin();
