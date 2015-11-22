@@ -2,10 +2,8 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include <time.h>
-#include "../include/Player.h"
 #include "../include/View.h"
-#include "../include/Room.h"
-#include "../include/Level.h"
+
 
 
 #define WINDOW_WIDTH 80

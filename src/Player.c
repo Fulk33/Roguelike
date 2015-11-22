@@ -23,15 +23,7 @@ Player* createPlayer(int x, int y) {
 	return newPlayer;
 }
 
-/**
- * This will draw the symbol of the player
- * @param  p The pointer to the player
- * @return   1
- */
-int drawPlayer(Player* p, View* view){
-	mvaddch(p->y-view->y, p->x-view->x, p->symbol);
-	return 1;
-}
+
 
 /**
  * This will move the player in a given direction
@@ -39,44 +31,28 @@ int drawPlayer(Player* p, View* view){
  * @param  dir The direction (0: up; 1: right; 2: down; 3: left)
  * @return     1
  */
-int movePlayer(Player* p, View* view, int dir){
+int movePlayer(Player* p, int dir){
 
 	switch(dir) {
-		case 0:	mvaddch(p->y-view->y, p->x-view->x, p->ground);
+		case 0:	
 				p->y--;
-				drawPlayer(p, view);
+				
 				break;
-		case 1: mvaddch(p->y-view->y, p->x-view->x, p->ground);
+		case 1: 
 				p->x++;
-				drawPlayer(p, view);
+				
 				break;
-		case 2: mvaddch(p->y-view->y, p->x-view->x, p->ground);
+		case 2: 
 				p->y++;
-				drawPlayer(p, view);
 				break;
-		case 3: mvaddch(p->y-view->y, p->x-view->x, p->ground);
+		case 3: 
 				p->x--;
-				drawPlayer(p, view);
 				break;
-
-
-
 		default:
+
 				break;
 	}
 
 	return 1;
 }
-
-Player* spawnPlayer(Room** rooms, int numRooms) {
-	//The player will always be spawed in the first room in the array
-	
-	Player* newPlayer;
-
-	int x = rooms[0]->x + 2; //change this later
-	int y = rooms[0]->y + 2; 
-
-	newPlayer = (Player*)createPlayer(x, y);
-
-	return newPlayer;
-}
+//TODO Delete_player because else hässliche Memory leaks

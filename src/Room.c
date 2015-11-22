@@ -37,27 +37,7 @@ int deleteRoom(Room* room) {
 	return 1;
 }
 
-/**
- * This function draws a room
- * @param	pointer to a room
- * @return 	1
- */
-int drawRoom(Room* room, View* view) {
-	for (int i = 0; i < room->width; i++) {
-		for (int j = 0; j < room->height; j++) {
-			if((i==0 && j==0) || (i==0 && j==room->height-1) || (i==room->width-1 && j==0) || (i==room->width-1 && j==room->height-1)){
-				mvaddch(room->y+j-view->y, room->x+i-view->x, '+');
-			} else if(i==0 || i == room->width-1){
-				mvaddch(room->y+j-view->y, room->x+i-view->x, '|');
-			} else if(j==0 || j == room->height-1){
-				mvaddch(room->y+j-view->y, room->x+i-view->x, '-');
-			} else
-			mvaddch(room->y+j-view->y, room->x+i-view->x, '.');
-		}
-	}
-	return 1;
-}
-
+ 
 Room** generateRooms(int numRooms, int levelWidth, int levelHeight) {
 	int i, j, k, l;
 	int rSize, rWidth, rHeight, rIndex, canBePlaced;
@@ -118,4 +98,17 @@ int checkForSpace(int x, int y, int width, int height, Room** rooms, int numRoom
 		}
 	}
 	return 1;
+}
+
+Player* spawnPlayer(Room** rooms, int numRooms) {
+	//The player will always be spawed in the first room in the array
+	
+	Player* newPlayer;
+
+	int x = rooms[0]->x + 2; //change this later
+	int y = rooms[0]->y + 2; 
+
+	newPlayer = (Player*)createPlayer(x, y);
+
+	return newPlayer;
 }

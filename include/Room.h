@@ -1,7 +1,9 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-#include "../include/View.h"
+#include "../include/Player.h"
+//#include "../include/Item.h"
+//#include "../include/Monster.h"
 
 typedef struct _Room{
 	int x;
@@ -14,8 +16,9 @@ typedef struct _Room{
 //Room Functions
 Room* createRoom(int x, int y, int width, int height);
 int deleteRoom(Room* room);
-int drawRoom(Room* room, View* view);
 Room** generateRooms(int numRooms, int levelWidth, int levelHeight);
 int checkForSpace(int x, int y, int width, int height, Room** rooms, int numRooms);
+Player* spawnPlayer(Room** rooms, int numRooms);
+
 
 #endif 

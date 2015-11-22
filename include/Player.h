@@ -1,8 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "../include/Room.h"
-#include "../include/View.h"
+
 
 //Defining a new Type with struct.
 typedef struct _Player { //Called Player
@@ -14,8 +13,6 @@ typedef struct _Player { //Called Player
 
 //Player Functions
 Player* createPlayer(int x, int y);
-int drawPlayer(Player* p, View* view);
-int movePlayer(Player* p, View* view, int dir);
-Player* spawnPlayer(Room** rooms, int numRooms);
+int movePlayer(Player* p, int dir);
 
 #endif 
