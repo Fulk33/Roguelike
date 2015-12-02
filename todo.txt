@@ -27,6 +27,7 @@ TO DO:
 					-Level
 						-Room
 							-Player
+								-Inventory
 							-Item
 							-Monster
 					

@@ -64,7 +64,7 @@ int roomIsInsideOfView(Room* room, View* view){
 
 int renderbox(int x, int y, int width, int height) {
 	mvaddch(0, 0, '+');
-	for (int i = 1; i < width-1; i++) {
+	for (int i = 1; i < width; i++) {
 		mvaddch(0, i, '-');
 	}
 	mvaddch(0, width, '+');
@@ -73,7 +73,7 @@ int renderbox(int x, int y, int width, int height) {
 		mvaddch(i, width, '|');
 	}
 	mvaddch(height, 0, '+');
-	for (int i = 1; i < width-1; i++) {
+	for (int i = 1; i < width; i++) {
 		mvaddch(height, i, '-');
 	}
 	mvaddch(height, width, '+');

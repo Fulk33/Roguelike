@@ -5,8 +5,8 @@
 
 #include "../include/View.h"
 
-#define WINDOW_WIDTH 80
-#define WINDOW_HEIGHT 30
+#define WINDOW_WIDTH 95
+#define WINDOW_HEIGHT 28
 
 enum INPUT {
 	up,

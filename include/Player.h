@@ -9,6 +9,10 @@ typedef struct _Player { //Called Player
 	int y;
 	char symbol;		//Symbol of the player e.g. 'Q'
 	char ground;
+	float speed;
+	int attk;
+	int def;
+	int health;
 } Player;
 
 //Player Functions
